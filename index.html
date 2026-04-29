@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Premium Video Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Entry Screen for Unmuted Autoplay Policy -->
+    <div id="entry-screen" class="overlay">
+        <div class="entry-content">
+            <h1>Immersive Experience</h1>
+            <p>Tap anywhere to begin</p>
+        </div>
+    </div>
+
+    <!-- Minimalist Loader -->
+    <div id="loader" class="overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Centered 9:16 Video Layout -->
+    <div class="video-wrapper">
+        <div class="video-container">
+            <video id="main-video" playsinline preload="auto"></video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
