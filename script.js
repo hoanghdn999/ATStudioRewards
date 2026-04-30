@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedVideo = videoFiles[videoId] || videoFiles['1'];
 
     video.src = selectedVideo;
+    video.load(); // Force iOS to fetch the media and load the first frame
     entryScreen.classList.add('active');
 
     video.isLooping = false;
@@ -67,11 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         entryScreen.classList.remove('active');
         loader.classList.add('active');
 
-        // iOS requires play() to be called synchronously in the click handler
-        video.muted = false;
-        video.classList.add('ready'); // Ensure visibility
-
+        // iPhone fix: Force the video to be visible and explicitly start muted to bypass restrictions
+        video.classList.add('ready'); 
+        video.muted = true; 
+        
         video.play().then(() => {
+            // Instantly unmute once iOS officially allows the stream to play
+            video.muted = false;
             loader.classList.remove('active');
         }).catch(e => {
             console.error('Play failed:', e);
