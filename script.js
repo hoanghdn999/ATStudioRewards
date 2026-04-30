@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Trigger 600ms before the end to prevent the native pause at the end
         const triggerTime = video.duration - 0.6;
-        const seekBackTime = Math.max(0, video.duration - 5);
+        const seekBackTime = Math.max(0, video.duration - 3);
 
         if (video.currentTime >= triggerTime && !video.isLooping) {
             video.isLooping = true;
