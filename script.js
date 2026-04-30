@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoId = params.get('v');
 
     const videoFiles = {
-        '1': 'Trà.mp4',
-        '2': 'Trà bonus.mp4',
+        '1': 'Tra.mp4',
+        '2': 'Tra bonus.mp4',
         '3': 'Cafe.mp4',
         '4': 'Cafe bonus.mp4',
         '5': 'Freeze.mp4',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // iOS requires play() to be called synchronously in the click handler
         video.muted = false;
         video.classList.add('ready'); // Ensure visibility
-        
+
         video.play().then(() => {
             loader.classList.remove('active');
         }).catch(e => {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     video.addEventListener('waiting', () => {
         loader.classList.add('active');
     });
-    
+
     video.addEventListener('playing', () => {
         loader.classList.remove('active');
     });
