@@ -67,25 +67,24 @@ document.addEventListener('DOMContentLoaded', () => {
         entryScreen.classList.remove('active');
         loader.classList.add('active');
 
-        const playVideo = () => {
-            video.muted = false;
-            video.play().catch(e => console.error('Play failed:', e));
+        // iOS requires play() to be called synchronously in the click handler
+        video.muted = false;
+        video.classList.add('ready'); // Ensure visibility
+        
+        video.play().then(() => {
             loader.classList.remove('active');
-        };
+        }).catch(e => {
+            console.error('Play failed:', e);
+            loader.classList.remove('active');
+        });
+    });
 
-        if (video.readyState >= 3) {
-            playVideo();
-        } else {
-            const checkReady = setInterval(() => {
-                if (video.readyState >= 3) {
-                    clearInterval(checkReady);
-                    playVideo();
-                }
-            }, 200);
-            setTimeout(() => {
-                clearInterval(checkReady);
-                playVideo();
-            }, 3000);
-        }
+    // Handle buffering states using native events
+    video.addEventListener('waiting', () => {
+        loader.classList.add('active');
+    });
+    
+    video.addEventListener('playing', () => {
+        loader.classList.remove('active');
     });
 });
