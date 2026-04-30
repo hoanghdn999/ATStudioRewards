@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default to video 1 if no specific video is requested
     const selectedVideo = videoFiles[videoId] || videoFiles['1'];
 
-    video.src = selectedVideo;
+    // Append a timestamp to bypass aggressive mobile Safari caching (fixes persistent 404s)
+    video.src = selectedVideo + "?t=" + new Date().getTime();
     video.load(); // Force iOS to fetch the media and load the first frame
     entryScreen.classList.add('active');
 
