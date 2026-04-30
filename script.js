@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoId = params.get('v');
 
     const videoFiles = {
-        '1': 'Trà.mp4',
-        '2': 'Trà bonus.mp4',
+        '1': 'Trà.mp4',
+        '2': 'Trà bonus.mp4',
         '3': 'Cafe.mp4',
         '4': 'Cafe bonus.mp4',
         '5': 'Freeze.mp4',
