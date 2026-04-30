@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '3': 'Phin 10.mp4',
         '4': 'Phin bonus.mp4',
         '5': 'Freeze 10.mp4',
-        '6': 'Freeze bonus.mp4'
+        '6': 'freeze bonus.mp4'
     };
 
     // Default to video 1 if no specific video is requested
